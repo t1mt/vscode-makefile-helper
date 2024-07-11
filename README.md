@@ -1,10 +1,13 @@
-# Makefile Outliner VS Code Extension
+# Maker Helper VSCode Extension
 
-This extension adds support for Makefile outline to VS Code.
+A simple extension for Makefile.
 
-![Makefile Outliner](./images/vscode-makefile-outliner.png)
+Forks:
+* ![Makefile Indexer](https://github.com/Serj1032/MakefileIndexer)
+* ![Makefile Outliner](https://github.com/tadayosi/vscode-makefile-outliner)
 
 ## Features
 
 * Show targets, variables, and functions in VS Code Outline view
 * Provide accessible symbols for "Go to Symbol in Editor..." command (`Ctrl+Shift+O`)
+* Provede "Go to Definition"(`F12`) for targets, variables, and functions
