@@ -3,8 +3,8 @@
 A simple extension for Makefile.
 
 Forks:
-* ![Makefile Indexer](https://github.com/Serj1032/MakefileIndexer)
-* ![Makefile Outliner](https://github.com/tadayosi/vscode-makefile-outliner)
+* [Makefile Indexer](https://github.com/Serj1032/MakefileIndexer)
+* [Makefile Outliner](https://github.com/tadayosi/vscode-makefile-outliner)
 
 ## Features
 
