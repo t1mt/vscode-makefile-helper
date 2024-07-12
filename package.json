@@ -2,7 +2,7 @@
   "name": "makefile-helper",
   "displayName": "Makefile Helper",
   "description": "Support outline & indexer for Makefile",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "t1mt",
   "author": "t1mt",
   "license": "Apache-2.0",
