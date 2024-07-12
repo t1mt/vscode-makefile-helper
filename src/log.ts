@@ -45,7 +45,7 @@ export function log(cat: string, ...o: any) {
                 outputChannel.append(' ' + mapObject(args));
             });
             outputChannel.appendLine("")
-            outputChannel.show();
+            // outputChannel.show();
             return;
 
         case 'error':
@@ -57,7 +57,7 @@ export function log(cat: string, ...o: any) {
             outputChannel.append(err);
             vscode.window.showErrorMessage(err);
             outputChannel.appendLine("")
-            outputChannel.show();
+            // outputChannel.show();
             return;
 
         default:
@@ -66,7 +66,7 @@ export function log(cat: string, ...o: any) {
                 outputChannel.append(' ' + mapObject(args));
             });
             outputChannel.appendLine("")
-            outputChannel.show();
+            // outputChannel.show();
             return;
     }
 
