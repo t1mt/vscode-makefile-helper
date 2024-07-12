@@ -1,10 +1,13 @@
 # Change Log
 
-All notable changes to the "vscode-makefile-outliner" extension will be documented in this file.
+All notable changes to the "vscode-makefile-helper" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 ## [Unreleased]
+
+## [0.2.2] - 2024-7-12
+- feat: support index
 
 ## [0.2.0] - 2022-11-09
 

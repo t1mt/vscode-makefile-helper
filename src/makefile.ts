@@ -19,7 +19,7 @@ class MakefileSymbolProvider implements vscode.DocumentSymbolProvider, vscode.De
     private readonly functionPattern = /^define\s+([^:#=\s]+)\s*$/;
     private readonly includePattern = /^include\s+([^:#=\s]+)\s*$/;
     private readonly functionCallPattern = /^[^:#=]+\s*\$\(call\s(\w+).*\).*$/;
-    private readonly wordRangePattern = /([^:#=\s]+)/;
+    private readonly wordRangePattern = /[\$]*[\(|\{]*([^,:#=\s\{\}\(\)]+)[\)\}]*/;
 
     private variables: Map<string, Variable[]> = new Map();
     private includes: Map<string, string> = new Map();
@@ -49,6 +49,7 @@ class MakefileSymbolProvider implements vscode.DocumentSymbolProvider, vscode.De
 
         const variable = document.getText(document.getWordRangeAtPosition(position, this.wordRangePattern));
 
+        
         return new Promise((resolve, reject) =>
             !token.isCancellationRequested
                 ? resolve(this.getDefinitions(variable, document, position))
@@ -58,15 +59,17 @@ class MakefileSymbolProvider implements vscode.DocumentSymbolProvider, vscode.De
 
     private async getDefinitions(variable: string, document: vscode.TextDocument, position: vscode.Position) {
         this.readFile(document)
-        const range = document.getWordRangeAtPosition(position, this.wordRangePattern);
-        const selector = document.getText(range);
+        const match = variable.match(this.wordRangePattern)
+        if (!match) {
+            return []
+        }
+        const selector = match[1]
         return await this.getDefinition(document.fileName, selector);
     }
 
     public getDefinition(filename: string, variable: string): vscode.ProviderResult<vscode.Definition> {
         let res: vscode.Location[] = new Array();
         this.getVariable(filename, variable)?.forEach((it) => { res.push(it.getVscodeLocation()) });
-
         return res;
     }
 
